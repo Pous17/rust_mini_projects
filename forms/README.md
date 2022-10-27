@@ -1,0 +1,1 @@
+This program displays basic geometrical forms in the terminal. The user has to chose the size of it.

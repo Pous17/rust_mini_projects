@@ -50,10 +50,4 @@ fn main() {
     if d <= 0 {
         println!(r"   {}", "-".repeat((base * 2) - 1))
     }
-    println!("   {}", "-".repeat((base * 2) - 1));
-
-    while d > 0 {
-    println!(r" {} /{}\ ", " ".repeat(invertspaces), " ".repeat(spaces - 1));
-    d += 1; 
-    }
 }
