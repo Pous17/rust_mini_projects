@@ -1,0 +1,1 @@
+This program take an input and crypts it (based on the sha256 algorithm). 
