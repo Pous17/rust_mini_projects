@@ -34,6 +34,7 @@ fn main() {
         std::process::Command::new("clear").status().unwrap();
         println!("{}\n", "|".repeat(stick as usize));
         
+        let mut validated: bool = true;
         let a: i8 = valid_input();
 
         if a >= 1 && a <= 3 {
@@ -42,17 +43,21 @@ fn main() {
         } else {
             println!("Enter a valid number");
             thread::sleep(time::Duration::from_millis(700));
+            validated = false;
         }
+
         if stick <= 0 {
             println!("You have lost...");
             break;
         }
         
-        let adversary_play = rand::thread_rng().gen_range(1..=3);
+        //avoid that the adversary plays when you entered a invalid input.
+        if validated == true {
+            let adversary_play = rand::thread_rng().gen_range(1..=3);
+            stick -= adversary_play;
 
-        stick -= adversary_play;
-
-        println!("Your adversary took {} sticks", adversary_play);
+            println!("Your adversary took {} sticks", adversary_play); 
+        }
 
         if stick <= 0 {
             println!("\nYou win!");
