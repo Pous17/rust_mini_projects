@@ -28,8 +28,13 @@ fn bpm_calculator(bpm: u16) -> u16 {
     calculated_bpm
 }
 
-fn metronome(calculated_bpm: u16){
-    let count = [0, 1, 2, 3, 4];
+fn metronome(calculated_bpm: u16) {
+    let count: [&str; 5] = 
+    ["0",
+    "1 |",
+    "2 ||",
+    "3 |||",
+    "4 ||||"];
     let mut n: usize = 0;
     loop {
         std::process::Command::new("clear").status().unwrap();
